@@ -11,14 +11,16 @@ function HomePage() {
     <div>
     <div className='flex flex-wrap justify-center p-4 m-4'>
       {data ? (
-        <div className='bg-zinc-800 max-w-md w-fit p-10 rounded-md text-center'>
-          {data.map((element, index)=>(
-            <div key={index} className='flex flex-col items-center p-4 m-4 bg-zinc-800 max-w-md w-fit rounded-md text-center'>
-              <div className='text-2xl font-bold mb-5' key={element._id}>{element.nombre}</div>
-              <Link className={`bg-zinc-700 hover:bg-zinc-500 text-white px-4 py-2 rounded-md ml-2`} to={`/${privateRoutes.CONVERSACIONES}/${element._id}`}>iniciar el asistente</Link>
-            </div>
-          ))}
-        </div>
+        <div className='flex flex-wrap justify-center p-4 m-4'>
+        {data.map((element, index) => (
+          <div key={index} className='flex flex-col items-center p-6 m-4 bg-zinc-800 max-w-md rounded-md text-center'>
+            <div className='text-3xl font-bold mb-6'>{element.nombre}</div>
+            <Link className='bg-zinc-700 hover:bg-zinc-500 text-white px-6 py-3 rounded-md ml-3' to={`/${privateRoutes.CONVERSACIONES}/${element._id}`}>
+              Iniciar el asistente
+            </Link>
+          </div>
+        ))}
+      </div>
       ) : isLoading ? (
         <div>cargado......</div>
       ) : (
