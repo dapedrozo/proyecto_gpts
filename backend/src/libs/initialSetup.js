@@ -69,7 +69,7 @@ export const createDefaultEmpresas = async () => {
     if (countEmpresas > 0) return;
     const defaultEmpresa = [
       {
-        identificacion: "1098741116",
+        identificacion: config.IDENTIFICACION,
         apikey: config.API_KEY,
         asistentes: asistente._id
       },
