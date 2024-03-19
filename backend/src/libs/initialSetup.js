@@ -54,6 +54,10 @@ export const createDefaultAsistentes = async () => {
         idAsistente: config.ID_ASSISTANT,
         nombre: "Asistente Juridico",
       },
+      {
+        idAsistente: config.ID_ASSISTANT_APTALENT,
+        nombre: "Asistente AP Talent",
+      },
     ];
     await Asistente.create(defaultAsistente);
     console.log("Asistente creado");
