@@ -69,13 +69,13 @@ export const createDefaultAsistentes = async () => {
 export const createDefaultEmpresas = async () => {
   try {
     const countEmpresas = await Empresa.estimatedDocumentCount({ maxTimeMS: 100 })
-    const asistente = await Asistente.findOne({nombre: "Asistente Juridico"});
+    const asistentesFound = await Asistente.find();
     if (countEmpresas > 0) return;
     const defaultEmpresa = [
       {
         identificacion: config.IDENTIFICACION,
         apikey: config.API_KEY,
-        asistentes: asistente._id
+        asistentes: asistentesFound.map((asistente) => asistente._id)
       },
     ];
     await Empresa.create(defaultEmpresa);
