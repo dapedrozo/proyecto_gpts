@@ -3,6 +3,7 @@ import Permission from "../models/authorization/Permisos.js";
 import Empresa from "../models/usuarios/Empresa.js";
 import User from "../models/usuarios/User.js";
 import Asistente from '../models/asistentes/Asistente.js'
+import config from '../config.js'
 
 export const createDefaultPermissions = async () => {
   try {
@@ -50,7 +51,7 @@ export const createDefaultAsistentes = async () => {
     if (countAsistentes > 0) return;
     const defaultAsistente = [
       {
-        idAsistente: "asst_iSkPu5VtrOP4nNbQTX2jz5s7",
+        idAsistente: config.ID_ASSISTANT,
         nombre: "Asistente Juridico",
       },
     ];
@@ -64,12 +65,12 @@ export const createDefaultAsistentes = async () => {
 export const createDefaultEmpresas = async () => {
   try {
     const countEmpresas = await Empresa.estimatedDocumentCount({ maxTimeMS: 100 })
-    const asistente = await Asistente.findOne({idAsistente:"asst_iSkPu5VtrOP4nNbQTX2jz5s7"});
+    const asistente = await Asistente.findOne({nombre: "Asistente Juridico"});
     if (countEmpresas > 0) return;
     const defaultEmpresa = [
       {
         identificacion: "1098741116",
-        apikey: "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",
+        apikey: config.API_KEY,
         asistentes: asistente._id
       },
     ];
