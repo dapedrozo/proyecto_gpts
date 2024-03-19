@@ -9,11 +9,11 @@ function HomePage() {
   
   return (
     <div>
-    <div className='flex h-[calc(100vh-100px)] items-start justify-center p-4 m-4'>
+    <div className='flex flex-wrap justify-center p-4 m-4'>
       {data ? (
         <div className='bg-zinc-800 max-w-md w-fit p-10 rounded-md text-center'>
           {data.map((element, index)=>(
-            <div key={index}>
+            <div key={index} className='flex flex-col items-center p-4 m-4 bg-zinc-800 max-w-md w-fit rounded-md text-center'>
               <div className='text-2xl font-bold mb-5' key={element._id}>{element.nombre}</div>
               <Link className={`bg-zinc-700 hover:bg-zinc-500 text-white px-4 py-2 rounded-md ml-2`} to={`/${privateRoutes.CONVERSACIONES}/${element._id}`}>iniciar el asistente</Link>
             </div>
